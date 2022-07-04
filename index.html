@@ -12,7 +12,25 @@
 </head>
 <body>
     <div id="root">
-        <h1>{{message}}</h1>
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-4 offset-1 d-flex flex-column align-items-center">
+                    <h3>{{mainMessage}}</h3>
+                    <input class="w-100" v-model = "firstName" placeholder="Inserisci il tuo nome" type="text">
+                    <input class="w-100" v-model = "lastName" placeholder="Inserisci il tuo cognome" type="text">
+                    <input class="w-100" v-model = "profilePicture" placeholder="Inserisci il link alla tua immagine" type="text">
+                    <button @click="displayCard" class="btn btn-danger mt-1">Genera card</button>
+                </div>
+                <div class="col-4 offset-2">
+                    <div :class="cardClasses">
+                        <img class="card-img-top" :src= "profilePicture" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{firstName}} {{lastName}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./js/main.js"></script>
 </body>
